@@ -26,10 +26,9 @@ class gpu_memory_recorder(object):
         assert(isinstance(recording_interval, int) or 
                isinstance(recording_interval, float))
 
-
-        self._recording_interval = recording_interval
-        self._process_id = process_id
-        self._gpu_id = gpu_id
+        self.recording_interval = recording_interval
+        self.process_id = process_id
+        self.gpu_id = gpu_id
 
         self.logger = Logger('GPU_memory_recorder',
                              note=str(self.process_id) + '@gpu' + str(self.gpu_id))
@@ -37,8 +36,8 @@ class gpu_memory_recorder(object):
         self.log_dir = log_dir
        
         if (log_filename is None):
-            self._log_filename = 'gpu_mem_log_' + time.strftime("%Y_%m_%d_%H_%M") + \
-                                  '_' + str(self.process_id) + '.txt'
+            self.log_filename = 'gpu_mem_log_' + time.strftime("%Y_%m_%d_%H_%M") + \
+                                '_' + str(self.process_id) + '.txt'
         else:
             self.log_filename = log_filename
 
@@ -177,5 +176,5 @@ class gpu_memory_recorder(object):
     def recording_interval(self, value):
         assert(isinstance(value, int) or isinstance(value, float))
 
-        self._recording_interval = recording_interval
+        self._recording_interval = value
 

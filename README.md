@@ -4,9 +4,9 @@ Tested with nvidia-smi version 352.55 on CentOS Linux release 7.1.1503.
 
 I used this code to track how my theano code is using the GPU.
 
-An example how to use:
+## How to use
 
-
+```python
     import utils.memory_recorder
     import os
 
@@ -69,5 +69,8 @@ An example how to use:
 
     # save chart in log folder
     mem_recorder.generate_chart()
+```
 
+## Example output
 
+![Chart](https://github.com/ppalasek/gpu_memory_recorder/blob/master/logs/memory.png?raw=true)

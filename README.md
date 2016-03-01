@@ -75,6 +75,9 @@ mem_recorder.generate_chart()
 
 ```
 
-## Example output
+## Example outputs
 
 ![Chart](https://github.com/ppalasek/gpu_memory_recorder/blob/master/logs/memory.png?raw=true)
+
+![Chart](https://github.com/ppalasek/gpu_memory_recorder/blob/master/logs/mem_usage.png?raw=true)
+

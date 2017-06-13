@@ -58,6 +58,10 @@ class gpu_memory_recorder(object):
                ' | grep -A 3 "'+ str(self.process_id) +'" | grep "Memory" |' + \
                ' grep -Eo "[0-9]{1,5}" >> ' + os.path.join(self.log_dir, self.log_filename) + \
                '; sleep ' + str(self.recording_interval) + '; done;']
+        #nvidia-smi --query-gpu=memory.used --format=csv | tail -n +2 | cut -d" " -f1
+        cmd = ['bash', '-c', 'while true; do nvidia-smi --query-gpu=memory.used --format=csv' +
+               ' | tail -n +2 ' + ' | cut -d" " -f1 >> ' + os.path.join(self.log_dir, self.log_filename) + \
+               '; sleep ' + str(self.recording_interval) + '; done;']
 
         self.p = subprocess.Popen(cmd, preexec_fn=on_parent_exit.on_parent_exit('SIGHUP'))
 
